@@ -1,0 +1,56 @@
+<%- include('partials/header') %>
+
+<!-- Data Karyawan -->
+  <main>
+    <div class="content" id="content">
+      <!-- header section -->
+      <section class="header">
+        <h2>
+          Sistem Penilaian Kinerja Karyawan
+          <small class="fs-6 fw-lighter text-body-secondary">PT. Pengawasan</small>
+        </h2>
+      </section>
+      <!-- Success alert section -->
+      <section>
+        <div class="alert alert-success" role="alert">
+          <h5>&#128519; Selamat Datang - Di Sistem Penilaian Kinerja Karyawan</h5>
+          <p style="font-size: 14px; margin: 0;">Anda Berhasil Login.</p>
+        </div>
+        <div class="row  gap-3" style="padding: 10px;">
+          <div class="col p-2 d-flex bg-success align-items-center rounded">
+            <img src="/assets/open-hand-svgrepo-com.svg" width="30" height="30" class="ms-1 me-3">
+            <div class="text-white">
+              <p style="margin-bottom: 3px;">Total</p>
+              <p style="margin-bottom: 3px;">1</p>
+              <p style="margin-bottom: 3px;">Pengawas</p>
+            </div>
+          </div>
+          <div class="col p-2 d-flex bg-dark align-items-center rounded">
+            <img src="/assets/bag-svgrepo-com.svg" width="30" height="30" class="ms-1 me-3">
+            <div class="text-white">
+              <p style="margin-bottom: 3px;">Total</p>
+              <p style="margin-bottom: 3px;"><%= jumlahKriteria %></p>
+              <p style="margin-bottom: 3px;">Jumlah Kriteria</p>
+            </div>
+          </div>
+          <div class="col p-2 d-flex bg-primary align-items-center rounded">
+            <img src="/assets/people-svgrepo-com.svg" width="30" height="30" class="ms-1 me-3">
+            <div class="text-white">
+              <p style="margin-bottom: 3px;">Total</p>
+              <p style="margin-bottom: 3px;"><%= jumlahKaryawan %></p>
+              <p style="margin-bottom: 3px;">Jumlah Data Karyawan</p>
+            </div>
+          </div>
+          <div class="col p-2 d-flex bg-danger align-items-center rounded">
+            <img src="/assets/checklist-svgrepo-com.svg" width="30" height="30" class="ms-1 me-3">
+            <div class="text-white">
+              <p style="margin-bottom: 3px;">Total</p>
+              <p style="margin-bottom: 3px;"><%= jumlahPenilaian %></p>
+              <p style="margin-bottom: 3px;">Jumlah Karyawan Dinilai</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+<%- include('partials/footer') %>

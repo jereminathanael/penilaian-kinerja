@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/login.css" />
+    <link rel="icon" href="/assets/logo penilaian kinerja.png" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <title>Login | Penilaian Kinerja Karyawan</title>
+  </head>
+
+  <body class="bg-body-secondary">
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+      <div class="login-card p-4 rounded shadow">
+        <h3 class="text-center mb-5">Login</h3>
+
+        <!-- input username & password -->
+        <form action="/home" method="POST">
+          <div class="mb-5 d-flex">
+            <label for="username" class="border-bottom-only"><img src="/assets/user-icon-svgrepo-com.svg" alt="user-icon" /></label>
+            <input type="text" class="form-control border-bottom-only" id="username" placeholder="Type your username" name="username" />
+          </div>
+          <div class="mb-4 d-flex">
+            <label for="password" class="border-bottom-only"><img src="/assets/lock-svgrepo-com.svg" alt="pass-icon" /></label>
+            <input type="password" class="form-control border-bottom-only" id="password" placeholder="Type your password" name="password" />
+          </div>
+
+          <!-- Pesan error -->
+          <% if (errorMessage) { %>
+          <div class="alert alert-danger" role="alert"><%= errorMessage %></div>
+          <% } %>
+          
+          <button type="submit" class="btn btn-primary w-100">LOGIN</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

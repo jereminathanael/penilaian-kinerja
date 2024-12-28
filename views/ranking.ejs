@@ -1,0 +1,53 @@
+<%- include('partials/header') %>
+
+<!-- Ranking Karyawan -->
+  <main>
+    <div class="content" id="content">
+      <section class="header">
+        <h2>
+          Sistem Penilaian Kinerja Karyawan
+          <small class="fs-6 fw-lighter text-body-secondary">PT. Pengawasan</small>
+        </h2>
+      </section>
+      <!-- content section -->
+      <section class="main-content">
+        <div class="col-xs-12">
+          <div class="box-grey">
+            <h3 class="fs-5 m-0">
+              Ranking Penilaian Karyawan
+              <small class="fs-6 fw-lighter text-body-secondary">PT. Pengawasan</small>
+            </h3>
+            <div class="box-body mt-4">
+              <div class="heading-box-body">
+                <h6 class="m-0">Perangkingan</h6>
+              </div>
+              <div id="table" style="overflow-x: auto; max-width: 100%; margin: 10px 0;">
+                <table class="w-100" style="font-size: 14px;">
+                  <thead>
+                    <tr>
+                      <th>Nama Karyawan</th>
+                      <th>Total Poin</th>
+                      <th>Rank</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% ranking.map((item, index) => { %>
+                      <% if (index % 2 == 0) { %>
+                      <% const odd = "odd" %>
+                      <tr class=<%= odd %>>
+                      <% } %>
+                        <td><%= item.nama_karyawan %></td>
+                        <td><%= item.total_nilai %></td>
+                        <td><%= index + 1 %></td>
+                      </tr>
+                    <% }); %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+<%- include('partials/footer') %>

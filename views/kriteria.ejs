@@ -1,0 +1,55 @@
+<%- include('partials/header') %>
+
+<!-- Kriteria -->
+  <main>
+    <div class="content" id="content">
+      <!-- header section -->
+      <section class="header">
+        <h2>
+          Sistem Penilaian Kinerja Karyawan
+          <small class="fs-6 fw-lighter text-body-secondary">PT. Pengawasan</small>
+        </h2>
+      </section>
+      <!-- content section -->
+      <section class="main-content">
+        <div class="col-xs-12">
+          <div class="box-grey">
+            <h3 class="fs-5 m-0">Kriteria Penilaian</h3>
+            <div class="box-body mt-4">
+              <div id="table" style="overflow-x: auto; max-width: 100%; margin: 10px 0;">
+                <table class="w-100" style="font-size: 14px;">
+                  <thead>
+                    <tr>
+                      <th>Kode</th>
+                      <th>Nama Kriteria</th>
+                      <th>Sangat Baik</th>
+                      <th>Baik</th>
+                      <th>Cukup</th>
+                      <th>Tidak Baik</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% kriteria.map((item) => { %>
+                      
+                      <% if (item.id % 2 !== 0) { %>
+                      <% const odd = "odd" %>
+                      <tr class=<%= odd %>>
+                      <% } %>
+                        <td><%= item.kode %></td>
+                        <td><%= item.nama_kriteria %></td>
+                        <td><%= item.sangat_baik %></td>
+                        <td><%= item.baik %></td>
+                        <td><%= item.cukup %></td>
+                        <td><%= item.tidak_baik %></td>
+                      </tr>
+                    <% }); %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+<%- include('partials/footer') %>

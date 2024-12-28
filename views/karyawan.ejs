@@ -1,0 +1,87 @@
+<%- include('partials/header') %>
+
+<!-- Data Karyawan -->
+  <main>
+    <div class="content" id="content">
+      <!-- header section -->
+      <section class="header">
+        <h2>
+          Sistem Penilaian Kinerja Karyawan
+          <small class="fs-6 fw-lighter text-body-secondary">PT. Pengawasan</small>
+        </h2>
+      </section>
+      <!-- content section -->
+      <section class="main-content">
+        <div class="col-xs-12">
+          <div class="box-grey">
+            <h3 class="fs-5 m-0">
+              Data Karyawan 
+              <small class="fs-6 fw-lighter text-body-secondary">PT. Pengawasan</small>
+            </h3>
+            <div class="box-body mt-4">
+              <div class="heading-box-body">
+                <a href="/tambah-karyawan">
+                  <button class="btn btn-primary" style="font-size: 14px">
+                    <img src="/assets/pencil-edit-button-svgrepo-com.svg" width="13" height="13">
+                    Tambah
+                  </button>
+                </a>
+              </div>
+              <div id="table" style="overflow-x: auto; max-width: 100%; margin: 10px 0;">
+                <table class="w-100" style="font-size: 14px;">
+                  <thead>
+                    <tr>
+                      <th>No</th>
+                      <th>Kode</th>
+                      <th>Nama Karyawan</th>
+                      <th>Tempat Tanggal Lahir</th>
+                      <th>Jabatan</th>
+                      <th>Divisi</th>
+                      <th>Aksi</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% dataKaryawan.map((karyawan, index) => { %>
+                      <tr>
+                        <td><%= index + 1 %></td>
+                        <td><%= karyawan.kode %></td>
+                        <td><%= karyawan.nama_karyawan %></td>
+                        <td><%= karyawan.tempat_tanggal_lahir %></td>
+                        <td><%= karyawan.jabatan %></td>
+                        <td><%= karyawan.divisi %></td>
+                        <td>
+                          <!-- Modal Template -->
+                          <div id="modal-<%= karyawan.id %>" class="modal">
+                            <div class="modal-content">
+                              <span class="close" onclick="closeModal('<%= karyawan.id %>')">&times;</span>
+                              <h2>Konfirmasi Hapus</h2>
+                              <p>Apakah Anda yakin ingin menghapus penilaian ini?</p>
+                              <div class="modal-actions">
+                                <!-- Tombol Konfirmasi -->
+                                <form action="/delete-karyawan/<%=karyawan.id %>" method="POST">
+                                  <button type="submit" class="btn btn-danger">Hapus</button>
+                                </form>
+                                <!-- Tombol Batal -->
+                                <button type="button" class="btn btn-info text-white" onclick="closeModal('<%= karyawan.id %>')">Batal</button>
+                              </div>
+                            </div>
+                          </div>
+
+                          <!-- Tombol Hapus -->
+                          <button type="button" class="delete-btn btn btn-danger" onclick="openModal('<%= karyawan.id %>')">
+                            <img src="/assets/bin.png" width="16" height="16">
+                          </button>
+
+                        </td>
+                      </tr>    
+                    <% }) %>                                      
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+<%- include('partials/footer') %>

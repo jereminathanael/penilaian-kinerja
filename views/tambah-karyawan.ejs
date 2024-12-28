@@ -1,0 +1,47 @@
+<%- include('partials/header') %>
+
+<!-- Tambah Data Karyawan -->
+  <main>
+    <div class="content" id="content">
+      <!-- header section -->
+      <section class="header">
+        <h2>
+          Sistem Penilaian Kinerja Karyawan
+          <small class="fs-6 fw-lighter text-body-secondary">PT. Pengawasan</small>
+        </h2>
+      </section>
+
+      <!-- content section -->
+      <section>
+        <div class="row justify-content-center">
+          <div class="col-8 bg-white rounded p-4 my-4">
+            <h3 class="text-center mb-3 fw-bold">Data Karyawan</h3>
+            <form action="/tambah-karyawan" method="POST">
+              <div class="mb-3">
+                <label for="kodeKaryawan" class="form-label">Kode</label>
+                <input type="text" class="form-control" id="kodeKaryawan" placeholder="<%= locals.errorMessage ? errorMessage : 'XXX' %>" name="kodeKaryawan" required>
+              </div>
+              <div class="mb-3">
+                <label for="namaKaryawan" class="form-label">Nama Karyawan</label>
+                <input type="text" class="form-control" id="namaKaryawan" placeholder="karyawan" name="namaKaryawan" required>
+              </div>
+              <div class="mb-3">
+                <label for="tempatTanggalLahir" class="form-label">Tempat, Tanggal & Lahir</label>
+                <input type="text" class="form-control" id="tempatTanggalLahir" placeholder="City, DD MM YYYY" name="tempatTanggalLahir" required>
+              </div>
+              <div class="mb-3">
+                <label for="jabatan" class="form-label">Jabatan</label>
+                <input type="text" class="form-control" id="jabatan" placeholder="jabatan" name="jabatan" required>
+              </div>
+              <div class="mb-3">
+                <label for="divisi" class="form-label">Divisi</label>
+                <input type="text" class="form-control" id="divisi" placeholder="divisi" name="divisi" required>
+              </div>
+              <button type="submit" class="btn btn-dark">Submit</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+
+<%- include('partials/footer') %>

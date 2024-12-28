@@ -1,0 +1,86 @@
+<%- include('partials/header') %>
+
+<!-- Ranking Karyawan -->
+  <main>
+    <div class="content" id="content">
+      <!-- header section -->
+      <section class="header">
+        <h2>
+          Sistem Penilaian Kinerja Karyawan
+          <small class="fs-6 fw-lighter text-body-secondary">PT. Pengawasan</small>
+        </h2>
+      </section>
+
+      <!-- content section -->
+      <section>
+        <div class="row justify-content-center">
+          <div class="col-8 bg-white rounded p-4 my-4">
+            <h3 class="text-center mb-4 fw-bolder">Input Penilaian</h3>
+            <form action="/tambah-penilaian" method="POST">
+              <div class="mb-3">
+                <label for="karyawan_id" class="form-label fw-bold">Nama Karyawan</label>
+                <select name="karyawan_id" id="karyawan_id" required class="rounded">
+                  <option value="" disabled selected>Pilih Karyawan</option>
+                  <% karyawan.map((row) => { %>
+                    <option value="<%= row.id %>"><%= row.nama_karyawan %></option>
+                  <% }); %>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="absensi" class="form-label fw-bold">Absensi</label>
+                <select name="absensi" id="absensi" required class="rounded">
+                  <option value="" disabled selected>Pilih Nilai</option>
+                  <option value="sangat baik">Sangat Baik</option>
+                  <option value="baik">Baik</option>
+                  <option value="cukup">Cukup</option>
+                  <option value="tidak baik">Tidak Baik</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="kinerja" class="form-label fw-bold">Kinerja</label>
+                <select name="kinerja" id="kinerja" required class="rounded">
+                  <option value="" disabled selected>Pilih Nilai</option>
+                  <option value="sangat baik">Sangat Baik</option>
+                  <option value="baik">Baik</option>
+                  <option value="cukup">Cukup</option>
+                  <option value="tidak baik">Tidak Baik</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="kerjasama" class="form-label fw-bold">Kerjasama</label>
+                <select name="kerjasama" id="kerjasama" required class="rounded">
+                  <option value="" disabled selected>Pilih Nilai</option>
+                  <option value="sangat baik">Sangat Baik</option>
+                  <option value="baik">Baik</option>
+                  <option value="cukup">Cukup</option>
+                  <option value="tidak baik">Tidak Baik</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="kreativitas" class="form-label fw-bold">Kreativitas</label>
+                <select name="kreativitas" id="kreativitas" required class="rounded">
+                  <option value="" disabled selected>Pilih Nilai</option>
+                  <option value="sangat baik">Sangat Baik</option>
+                  <option value="baik">Baik</option>
+                  <option value="cukup">Cukup</option>
+                  <option value="tidak baik">Tidak Baik</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="sikap" class="form-label fw-bold">Sikap</label>
+                <select name="sikap" id="sikap" required class="rounded">
+                  <option value="" disabled selected>Pilih Nilai</option>
+                  <option value="sangat baik">Sangat Baik</option>
+                  <option value="baik">Baik</option>
+                  <option value="cukup">Cukup</option>
+                  <option value="tidak baik">Tidak Baik</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary mt-2">Submit</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+
+<%- include('partials/footer') %>
